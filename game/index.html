@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Twin Worlds — an original spot-the-difference game: two near-identical pictures, seven sneaky differences, three hand-drawn worlds.">
+<title>Twin Worlds — Spot the Difference</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header id="hud">
+  <div class="brand">
+    <span class="logo" aria-hidden="true">◐</span>
+    <div>
+      <strong>TWIN WORLDS</strong>
+      <small>spot the difference</small>
+    </div>
+  </div>
+  <div class="hud-stat" id="hud-scene" title="Current scene">Scene 1 · Beach Cove</div>
+  <div class="hud-stat big" id="hud-found" title="Differences found">Found <b>0 / 7</b></div>
+  <div class="hud-timer" id="hud-timer" title="Time left">
+    <span id="hud-clock">⏱ 2:30</span>
+    <div class="timer-bar"><div id="timer-fill"></div></div>
+  </div>
+  <div class="hud-stat" id="hud-score" title="Score">Score <b>0</b></div>
+  <div class="hud-stat combo" id="hud-combo" title="Combo">Combo ×1</div>
+  <button id="btn-hint" class="hud-btn" title="Hint (H) — highlights one unfound difference">💡 Hint <span id="hint-count">3</span></button>
+  <button id="btn-pause" class="hud-btn" title="Pause (P)">⏸ Pause</button>
+  <button id="btn-mute" class="hud-btn" title="Sound on/off (M)">🔊</button>
+</header>
+<main id="stage">
+  <canvas id="game" width="1280" height="736" aria-label="Twin Worlds: two near-identical pictures side by side. Click a difference on either picture to mark it."></canvas>
+  <p id="status" role="status" aria-live="polite"></p>
+  <div id="overlay" class="overlay"></div>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

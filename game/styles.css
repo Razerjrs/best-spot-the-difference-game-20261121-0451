@@ -1,0 +1,74 @@
+/* Twin Worlds — Spot the Difference. Warm paper UI, chunky readable HUD. */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; background: #1c2333; }
+body {
+  font-family: "Trebuchet MS", "Segoe UI", Verdana, sans-serif;
+  color: #f4ead8; display: flex; flex-direction: column;
+  height: 100vh; overflow: hidden;
+  user-select: none; -webkit-user-select: none;
+}
+#hud {
+  display: flex; align-items: center; gap: 14px;
+  padding: 8px 16px; background: linear-gradient(180deg, #2a3350, #232a40);
+  border-bottom: 3px solid #f2b705; flex: 0 0 auto; min-height: 62px;
+}
+.brand { display: flex; align-items: center; gap: 9px; }
+.brand .logo { font-size: 30px; color: #f2b705; line-height: 1; }
+.brand strong { display: block; font-size: 19px; letter-spacing: 2px; color: #fff; }
+.brand small { display: block; font-size: 11px; letter-spacing: 3px; color: #9fb0d8; text-transform: uppercase; }
+.hud-stat {
+  background: #161c2c; border: 1px solid #3d4a6b; border-radius: 10px;
+  padding: 7px 12px; font-size: 14px; white-space: nowrap;
+}
+.hud-stat b { color: #ffd94d; font-size: 16px; }
+.hud-stat.big { font-size: 16px; }
+.hud-stat.big b { font-size: 19px; }
+.hud-stat.combo b { color: #7ee2a8; }
+.hud-timer { display: flex; flex-direction: column; gap: 4px; min-width: 170px; flex: 1; }
+#hud-clock { font-size: 17px; font-weight: bold; color: #fff; letter-spacing: 1px; }
+#hud-clock.low { color: #ff6b5e; animation: blink 0.5s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0.45; } }
+.timer-bar { height: 9px; background: #10141f; border-radius: 6px; overflow: hidden; border: 1px solid #3d4a6b; }
+#timer-fill { height: 100%; width: 100%; background: linear-gradient(90deg, #37c978, #f2b705); border-radius: 6px; transition: width 0.2s linear; }
+#timer-fill.low { background: linear-gradient(90deg, #ff6b5e, #ff9d5e); }
+.hud-btn {
+  font-family: inherit; font-size: 14px; font-weight: bold; color: #1c2333;
+  background: #ffd94d; border: none; border-radius: 10px; padding: 9px 13px;
+  cursor: pointer; box-shadow: 0 3px 0 #b98f00; white-space: nowrap;
+}
+.hud-btn:hover { background: #ffe47a; }
+.hud-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 #b98f00; }
+.hud-btn:disabled { background: #6b7280; color: #d7dbe3; box-shadow: 0 3px 0 #4b5563; cursor: default; }
+.hud-btn:focus-visible, .big-btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+#stage { position: relative; flex: 1 1 auto; display: flex; justify-content: center; background: #1c2333; }
+#game { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; cursor: crosshair; }
+#status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.overlay {
+  position: absolute; inset: 0; display: none;
+  align-items: center; justify-content: center;
+  background: rgba(12, 16, 28, 0.72); backdrop-filter: blur(2px); z-index: 5;
+}
+.overlay.show { display: flex; }
+.panel {
+  background: #fdf6e3; color: #26304a; border-radius: 18px; border: 4px solid #f2b705;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.55); padding: 28px 34px; max-width: 560px; text-align: center;
+}
+.panel h1 { margin: 0 0 6px; font-size: 34px; letter-spacing: 1px; color: #1c2333; }
+.panel h2 { margin: 0 0 8px; font-size: 26px; color: #1c2333; }
+.panel p { margin: 8px 0; font-size: 15px; line-height: 1.5; }
+.panel .tag { display: inline-block; background: #1c2333; color: #ffd94d; border-radius: 20px; padding: 4px 12px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+.panel .big-score { font-size: 40px; font-weight: bold; color: #c2410c; margin: 6px 0; }
+.panel .rules { text-align: left; font-size: 14px; line-height: 1.65; margin: 12px auto; max-width: 440px; }
+.panel .rules b { color: #b45309; }
+.big-btn {
+  font-family: inherit; font-size: 18px; font-weight: bold; color: #1c2333;
+  background: #f2b705; border: none; border-radius: 12px; padding: 13px 30px;
+  cursor: pointer; box-shadow: 0 4px 0 #b98f00; margin-top: 12px;
+}
+.big-btn:hover { background: #ffd94d; }
+.big-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #b98f00; }
+.scene-dots { display: flex; gap: 8px; justify-content: center; margin: 10px 0 2px; }
+.scene-dots span { width: 34px; height: 10px; border-radius: 6px; background: #cbd5e1; }
+.scene-dots span.done { background: #37c978; }
+.scene-dots span.now { background: #f2b705; }
+.stars { font-size: 30px; letter-spacing: 6px; color: #f2b705; margin: 4px 0; }
